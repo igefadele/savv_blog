@@ -1,0 +1,72 @@
+RewriteEngine On
+RewriteBase /
+
+# If it's a valid directory, serve it
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Trailing Slash Removal:
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# If it's a real asset (css/js), serve it
+RewriteCond %{REQUEST_FILENAME} -f
+
+# Don't change the URL and stop running further rules
+RewriteRule ^ - [L]
+
+# Send everything else to the index.php bootstrapper
+RewriteRule ^ index.php [L]
+
+
+
+# ====================
+# START ASSET OPTIMIZATION EXPIRATION OF CACHES
+# ====================
+
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images (Expanded)
+  # Set to 1 month - good balance for logos and UI elements
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+
+  # CSS and JavaScript
+  # Set to 1 year - requires "Cache Busting" (?v=123) when you update code
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # Fonts (The 22s problem fix)
+  # Fonts almost never change; cache them aggressively
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+
+</IfModule>
+
+# Prevent sw.js from being cached
+<Files "sw.js">
+    # Disable mod_expires for this file specifically
+    <IfModule mod_expires.c>
+        ExpiresActive Off
+    </IfModule>
+    
+    # Force headers to prevent all forms of caching
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+</Files>
+
+# ====================
+# STOP ASSET OPTIMIZATION EXPIRATION OF CACHES
+# ====================

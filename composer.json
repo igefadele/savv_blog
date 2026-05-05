@@ -1,0 +1,39 @@
+{
+    "name": "savadub/savv-starter",
+    "description": "The official skeleton for starting a new Savv project.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Savadub LLC",
+            "email": "developer@savadub.com"
+        }
+    ],
+    "repositories": [
+        {
+        "type": "vcs",
+        "url": "https://github.com/igefadele/savv_framework"
+        }
+    ],
+    "require": {
+        "savadub/savv": "^2.0", 
+        "phpmailer/phpmailer": "^7.0",
+        "vlucas/phpdotenv": "^5.6"
+    }, 
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"is_dir('storage/logs') || mkdir('storage/logs', 0777, true);\"",
+            "@php -r \"is_dir('views') || mkdir('views', 0777, true);\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

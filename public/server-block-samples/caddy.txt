@@ -1,0 +1,3 @@
+root * /path/to/savo-project/public
+php_fastcgi unix//run/php/php-fpm.sock
+file_server
