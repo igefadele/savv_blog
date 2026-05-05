@@ -11,12 +11,15 @@
     ],
     "repositories": [
         {
-        "type": "vcs",
-        "url": "https://github.com/igefadele/savv_framework"
+        "type": "path",
+        "url": "../savv_framework",
+        "options": {
+            "symlink": true
+        }
         }
     ],
     "require": {
-        "savadub/savv": "^2.0", 
+        "savadub/savv": "dev-main", 
         "phpmailer/phpmailer": "^7.0",
         "vlucas/phpdotenv": "^5.6"
     }, 
