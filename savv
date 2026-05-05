@@ -1,0 +1,3 @@
+#!/usr/bin/env php
+<?php
+require '/Users/MrFIA/Documents/WORKSPACE/SAVADUB_SOFTWARES/SAVV/savv_framework/src/Core/../framework/bin/savv';
