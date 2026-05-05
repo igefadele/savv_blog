@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="<?php echo $pageTitle ?? 'Savv Framework'; ?>" />
     <meta name="twitter:description" content="<?php echo $pageDescription ?? 'A lightweight PHP web framework'; ?>" />
 
-    <link rel="icon" type="image/png" href"<?= asset("/images/icons/favicon.png") ?>">
+    <link rel="icon" type="image/png" href="<?= asset("/images/icons/favicon.png") ?>">
     <link rel="stylesheet" href="<?= asset("/css/bootstrap-5.3.3.min.css") ?>">
 
     <!-- CDN ALTERNATIVE -->

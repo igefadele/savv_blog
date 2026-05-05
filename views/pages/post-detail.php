@@ -1,12 +1,9 @@
 <?php
-    $pageTitle = "Welcome — Your Brand Name | Savv Web Framework Starter";
-    $pageDescription = "We build things that matter. Powered by Savv Web Framework";
+    $metadata = $metadata ?? request('metadata', []);
+    $content = $content ?? request('content', '');
 
-    $metadata = request('metadata');
-    $content = request('content');
-
-    use Savv\Services\BlogService;
-    
+    $pageTitle = $metadata['title'] ?? "Welcome — Your Brand Name | Savv Web Framework Starter";
+    $pageDescription = $metadata['excerpt'] ?? "We build things that matter. Powered by Savv Web Framework";
 
     // Start capturing the HTML content
     ob_start();
