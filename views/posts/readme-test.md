@@ -3,6 +3,7 @@ slug: readme-test
 category: general
 author: Ige Fadele
 title: Readme Test Sample Now
+excerpt: The official project skeleton for the Savv Web Framework. A brand website or marketing site up and running in minutes.
 ---
 
 # Savv Web Starter

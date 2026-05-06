@@ -11,11 +11,11 @@
     ],
     "repositories": [
         {
-        "type": "path",
-        "url": "../savv_framework",
-        "options": {
-            "symlink": true
-        }
+            "type": "path",
+            "url": "../savv_framework",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {

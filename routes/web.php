@@ -1,5 +1,5 @@
 <?php 
-use Savv\Controllers\{CacheController};
+use Savv\Controllers\{CacheController, BlogController};
 
 /**  ======== Start Cache Routes ======== 
  * You can customise the endpoints you want to use for each action below.
@@ -28,4 +28,12 @@ router()->get('/cache-page/{uri}', [CacheController::class, 'cachePage']);
 // Cache pages
 router()->get('/cache-pages', [CacheController::class, 'cacheAllPages']);
 
+// Sync and cache all routes, pages, and posts
+router()->get('/optimize', [CacheController::class, 'optimize']);
 /* ======== End Cache Routes ======== */
+
+
+/* ======== Start Blog Routes */
+router()->get('/blog', [BlogController::class, 'index']);
+router()->get('/blog/{page}/{limit}', [BlogController::class, 'list']);
+/* ======== End Blog Routes */

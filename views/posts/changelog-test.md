@@ -3,6 +3,7 @@ slug: changelog-test
 category: info
 author: Amos Fadele
 title: Changelog Test Sample
+excerpt: All notable changes to the Savv Web Framework are documented in this file.
 ---
 
 # Changelog
